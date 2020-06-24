@@ -12,8 +12,9 @@ function testNoteStoresNote() {
 };
 
 function testNoteID() {
-  var note = new Note("I'm new, look at me!!!");
-  assert.isTrue(note.getID() == 1, "note id test");
+  var noteList = new NoteList
+  noteList.addNote("I'm first")
+  assert.isTrue(noteList.getNotes()[0].getID() === 0, "note id test");
 }
 
 function testNoteListStoresNote() {

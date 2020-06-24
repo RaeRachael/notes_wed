@@ -1,9 +1,7 @@
 (function(exports) {
-  function Note(string) {
-    // if (typeof noteNumber === 'undefined') {noteNumber = 0} !How to set as 0 at the start of the run!
+  function Note(string, id) {
     this.text = string;
-    // this.id = noteNumber;
-    // noteNumber ++;
+    this.id = id
   };
 
   Note.prototype.getText = function() {
@@ -11,7 +9,7 @@
   };
 
   Note.prototype.getID = function() {
-    return "not done";
+    return this.id;
   };
 
   exports.Note = Note;

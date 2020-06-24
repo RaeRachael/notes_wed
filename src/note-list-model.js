@@ -4,7 +4,7 @@
   };
 
   NoteList.prototype.addNote = function(note) {
-    newnote = new Note(note);
+    newnote = new Note(note, this.notesArray.length);
     this.notesArray.push(newnote)
   };
 
@@ -14,17 +14,3 @@
 
   exports.NoteList = NoteList;
 })(this);
-
-// class NoteList {
-//    constructor() {
-//      this.notesArray = [];
-//    }
-//
-//    addNote(note) {
-//      this.notesArray.push(note)
-//    }
-//
-//    notes() {
-//      return this.notesArray
-//    };
-// };
