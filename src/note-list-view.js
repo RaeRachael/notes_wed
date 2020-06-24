@@ -6,12 +6,11 @@
   };
 
   NoteListView.prototype.displayView = function() {
-    // if (this.noteList.Note == null) {
-    //   return null;
-    // } else {
       var notearray = this.noteList.getNotes();
-      output = ''
-      notearray.forEach (function(note) { output += `<ul><li><div>${note.getText().substring(0,20)}</div></li></ul>` })
+      var output = ''
+      notearray.forEach (function(note) {
+        output += `<ul><li><div>${note.getText().substring(0,20)}</div></li></ul>`
+      })
       return output
   };
 

@@ -4,7 +4,7 @@
   }
 
   SingleNote.prototype.getHtml = function() {
-    return '<div>' + this.note.getText() + '</div>';
+    return `<div>${this.note.getText()}</div>`;
   };
 
   exports.SingleNote = SingleNote

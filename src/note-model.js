@@ -1,17 +1,16 @@
 (function(exports) {
   function Note(string, id) {
-    this.text = string;
-    this.id = id
+    this._text = string;
+    this._id = id
   };
 
   Note.prototype.getText = function() {
-    return this.text;
+    return this._text;
   };
 
   Note.prototype.getID = function() {
-    return this.id;
+    return this._id;
   };
 
   exports.Note = Note;
-  // exports.noteNumber = noteNumber !How to update the noteNumber!
 })(this);
