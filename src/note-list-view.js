@@ -9,7 +9,8 @@
       var notearray = this.noteList.getNotes();
       var output = '<ul>'
       notearray.forEach (function(note) {
-        output += `<li><div>${note.getText().substring(0,20)}</div></li>`
+        output += `<li><div><a href="#note/${note.getID()}">${note.getText().substring(0,20)}</a></div></li>`
+
       })
       output += '</ul>'
       return output
