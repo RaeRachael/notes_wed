@@ -8,22 +8,39 @@ function noteControllerInstantiated() {
   function NoteListView() {
   }
   NoteListView.prototype.displayView = function() {
-    return '<ul><li><div><a id="note/0" href="#note/0">Favourite drink: sel</a></div></li></ul>'
+
+    var noteZeroString = '<li><div><a id="note/0" href="#note/0">Favourite drink: sel</a></div></li>'
+    var noteOneString = '<li><div><a id="note/1" href="#note/1">helllloooooooo</a></div></li>'
+    var string = '<ul>' + noteZeroString + noteOneString + '</ul>'
+    return string
   }
 
-  function Note() {
+  function Note(toggle) { 
+    this.toggle = toggle
   }
   Note.prototype.getText = function() {
-    return "Favourite drink: sel"
+
+    if (this.toggle ===  "yes") {
+      return "Favourite drink: sel"
+    } else {
+      return "helllloooooooo"
+    }
+    
   }
   Note.prototype.getID = function() {
-    return 0
+
+    if (this.toggle ===  "yes") {
+      return 0
+    } else {
+      return 1
+    }
   }
+
 
   function NoteList() {
   }
   NoteList.prototype.getNotes = function() {
-    return [new Note()]
+    return [new Note("yes"), new Note("no")]
   }
 
   exports.NoteListView = NoteListView
@@ -34,7 +51,9 @@ function noteControllerOutput() {
   var noteListDouble
   var noteController = new NoteController(noteListDouble);
   noteController.displayHtml()
-  var string = '<ul><li><div><a id="note/0" href="#note/0">Favourite drink: sel</a></div></li></ul>'
+  var noteZeroString = '<li><div><a id="note/0" href="#note/0">Favourite drink: sel</a></div></li>'
+  var noteOneString = '<li><div><a id="note/1" href="#note/1">helllloooooooo</a></div></li>'
+  var string = '<ul>' + noteZeroString + noteOneString + '</ul>'
   assert.isTrue(document.getElementById("app").innerHTML === string, "this test");
 };
 
@@ -47,7 +66,17 @@ function clickedOnNote() {
     assert.isTrue(document.getElementById("app").innerHTML === "Favourite drink: sel", "single app HTML")
     console.log(document.getElementById("app").innerHTML,2);
     }, 2000);
+}
 
+function clickedOnNote() {
+  var noteListDouble = new NoteList
+  var noteController = new NoteController(noteListDouble);
+  noteController.displayHtml()
+  document.getElementById("note/1").click()
+  setTimeout(() => {
+    assert.isTrue(document.getElementById("app").innerHTML === "helllloooooooo", "secondHTMLOutput")
+    console.log(document.getElementById("app").innerHTML,2);
+    }, 2000);
 }
 
 
