@@ -10,7 +10,9 @@
 
    window.addEventListener("hashchange", clickedOn)
 
-   function clickedOn() {
+   async function clickedOn() {
+     correctText = "Favourite drink: sel"
+     document.getElementById("app").innerHTML = correctText;
      console.log("clicked", 5)
    }
 

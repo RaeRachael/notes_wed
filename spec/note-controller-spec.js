@@ -8,7 +8,7 @@ function noteControllerInstantiated() {
   function NoteListView() {
   }
   NoteListView.prototype.displayView = function() {
-    return '<ul><li><div><a href="#note/0">Favourite drink: sel</a></div></li></ul>'
+    return '<ul><li><div><a id="note/0" href="#note/0">Favourite drink: sel</a></div></li></ul>'
   }
 
   function Note() {
@@ -34,7 +34,7 @@ function noteControllerOutput() {
   var noteListDouble
   var noteController = new NoteController(noteListDouble);
   noteController.displayHtml()
-  var string = '<ul><li><div><a href="#note/0">Favourite drink: sel</a></div></li></ul>'
+  var string = '<ul><li><div><a id="note/0" href="#note/0">Favourite drink: sel</a></div></li></ul>'
   assert.isTrue(document.getElementById("app").innerHTML === string, "this test");
 };
 
@@ -42,8 +42,12 @@ function clickedOnNote() {
   var noteListDouble = new NoteList
   var noteController = new NoteController(noteListDouble);
   noteController.displayHtml()
-  document.getElementById("app").click()
-  assert.isTrue(document.getElementById("app").innerHTML === "Favourite drink: sel", "single app HTML")
+  document.getElementById("note/0").click()
+  setTimeout(() => {
+    assert.isTrue(document.getElementById("app").innerHTML === "Favourite drink: sel", "single app HTML")
+    console.log(document.getElementById("app").innerHTML,2);
+    }, 2000);
+
 }
 
 
