@@ -19,7 +19,7 @@ function noteControllerOutput() {
   var noteController = new NoteController(noteListDouble);
   noteController.displayHtml()
   var string = '<ul><li><div>Favourite drink: sel</div></li></ul>'
-  assert.isTrue(document.getElementById("app").innerHTML === string);
+  assert.isTrue(document.getElementById("app").innerHTML === string, "this test");
 };
 
 
