@@ -8,5 +8,11 @@
     document.getElementById("app").innerHTML = this.noteListView.displayView();
   };
 
+   window.addEventListener("hashchange", clickedOn)
+
+   function clickedOn() {
+     console.log("clicked", 5)
+   }
+
   exports.NoteController = NoteController;
 })(this);
