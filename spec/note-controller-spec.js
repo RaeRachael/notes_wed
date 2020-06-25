@@ -8,7 +8,7 @@ function noteControllerInstantiated() {
   function NoteListView() {
   }
   NoteListView.prototype.displayView = function() {
-    return '<ul><li><div>Favourite drink: seltzer</div></li></ul>'
+    return '<ul><li><div>Favourite drink: sel</div></li></ul>'
   }
 
   exports.NoteListView = NoteListView
@@ -18,8 +18,8 @@ function noteControllerOutput() {
   var noteListDouble
   var noteController = new NoteController(noteListDouble);
   noteController.displayHtml()
-  var string = '<ul><li><div>Favourite drink: seltzer</div></li></ul>'
-  assert.isTrue(document.getElementById("app").innerHTML = string);
+  var string = '<ul><li><div>Favourite drink: sel</div></li></ul>'
+  assert.isTrue(document.getElementById("app").innerHTML === string);
 };
 
 

@@ -7,10 +7,11 @@
 
   NoteListView.prototype.displayView = function() {
       var notearray = this.noteList.getNotes();
-      var output = ''
+      var output = '<ul>'
       notearray.forEach (function(note) {
-        output += `<ul><li><div>${note.getText().substring(0,20)}</div></li></ul>`
+        output += `<li><div>${note.getText().substring(0,20)}</div></li>`
       })
+      output += '</ul>'
       return output
   };
 
