@@ -15,7 +15,7 @@ function noteControllerInstantiated() {
     return string
   }
 
-  function Note(toggle) { 
+  function Note(toggle) {
     this.toggle = toggle
   }
   Note.prototype.getText = function() {
@@ -25,7 +25,7 @@ function noteControllerInstantiated() {
     } else {
       return "helllloooooooo"
     }
-    
+
   }
   Note.prototype.getID = function() {
 
@@ -57,29 +57,36 @@ function noteControllerOutput() {
   assert.isTrue(document.getElementById("app").innerHTML === string, "this test");
 };
 
-function clickedOnNote() {
+function clickedOnNote1() {
   var noteListDouble = new NoteList
+  console.log(noteListDouble.getNotes(), 1)
   var noteController = new NoteController(noteListDouble);
   noteController.displayHtml()
+  startListen(noteController)
   document.getElementById("note/0").click()
   setTimeout(() => {
     assert.isTrue(document.getElementById("app").innerHTML === "Favourite drink: sel", "single app HTML")
     console.log(document.getElementById("app").innerHTML,2);
-    }, 2000);
+  }, 500);
 }
 
-function clickedOnNote() {
+function clickedOnNote2() {
   var noteListDouble = new NoteList
+  console.log(noteListDouble.getNotes(), 2)
   var noteController = new NoteController(noteListDouble);
   noteController.displayHtml()
+  startListen(noteController)
   document.getElementById("note/1").click()
   setTimeout(() => {
     assert.isTrue(document.getElementById("app").innerHTML === "helllloooooooo", "secondHTMLOutput")
     console.log(document.getElementById("app").innerHTML,2);
-    }, 2000);
+  }, 500);
 }
 
 
 noteControllerInstantiated();
 noteControllerOutput();
-clickedOnNote();
+clickedOnNote1();
+setTimeout(() => {
+clickedOnNote2();
+}, 1000);
