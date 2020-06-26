@@ -59,27 +59,23 @@ function noteControllerOutput() {
 
 function clickedOnNote1() {
   var noteListDouble = new NoteList
-  console.log(noteListDouble.getNotes(), 1)
   var noteController = new NoteController(noteListDouble);
   noteController.displayHtml()
   startListen(noteController)
   document.getElementById("note/0").click()
   setTimeout(() => {
     assert.isTrue(document.getElementById("app").innerHTML === "Favourite drink: sel", "single app HTML")
-    console.log(document.getElementById("app").innerHTML,2);
   }, 500);
 }
 
 function clickedOnNote2() {
   var noteListDouble = new NoteList
-  console.log(noteListDouble.getNotes(), 2)
   var noteController = new NoteController(noteListDouble);
   noteController.displayHtml()
   startListen(noteController)
   document.getElementById("note/1").click()
   setTimeout(() => {
     assert.isTrue(document.getElementById("app").innerHTML === "helllloooooooo", "secondHTMLOutput")
-    console.log(document.getElementById("app").innerHTML,2);
   }, 500);
 }
 
